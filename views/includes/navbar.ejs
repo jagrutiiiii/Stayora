@@ -1,0 +1,100 @@
+<style>
+  .btn-search {
+    background-color: blueviolet;
+    color: white;
+    border-radius: 20px;
+    padding: 0 1rem;
+  }
+  .btn-search:hover {
+    background-color: blueviolet;
+    color: white;
+  }
+  .btn-search i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-inp {
+    border-radius: 20px;
+    padding: 0.5rem 3rem;
+  }
+  .navbar-collapse {
+    background-color: white; /* white background on small screens */
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+</style>
+  
+<nav class="navbar navbar-expand-md border-bottom sticky-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/listings"><i class="fa-brands fa-staylinked"></i></a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- Left side link -->
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings"><b>Explore Stayora</b></a>
+        </li>
+      </ul>
+
+      <!-- Search form -->
+      <!-- <form class="d-flex mb-3 mb-md-0" role="search">
+        <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations" />
+        <button class="btn btn-search" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form> -->
+
+      <form class="d-flex ms-auto" role="search" action="/listings/search" method="GET">
+        <select class="form-select me-2 search-inp" name="country" required>
+
+          <option value="all" <%= selectedCountry === 'all' ? "selected" : "" %>>Select Country</option>
+          <option value="India" <%= selectedCountry === 'India' ? "selected" : "" %>>India</option>
+          <option value="United States" <%= selectedCountry === 'United States' ? "selected" : "" %>>United States</option>
+          <option value="New York" <%= selectedCountry === 'New York' ? "selected" : "" %>>New York</option>
+          <option value="UK" <%= selectedCountry === 'UK' ? "selected" : "" %>>UK</option>
+          <option value="Japan" <%= selectedCountry === 'Japan' ? "selected" : "" %>>Japan</option>
+          <option value="Germany" <%= selectedCountry === 'Germany' ? "selected" : "" %>>Germany</option>
+          <option value="Canada" <%= selectedCountry === 'Canada' ? "selected" : "" %>>Canada</option>
+          <option value="France" <%= selectedCountry === 'France' ? "selected" : "" %>>France</option>
+          <option value="Italy" <%= selectedCountry === 'Italy' ? "selected" : "" %>>Italy</option>
+          <option value="Australia" <%= selectedCountry === 'Australia' ? "selected" : "" %>>Australia</option>
+          <option value="Spain" <%= selectedCountry === 'Spain' ? "selected" : "" %>>Spain</option>
+          <option value="Brazil" <%= selectedCountry === 'Brazil' ? "selected" : "" %>>Brazil</option>
+          <option value="China" <%= selectedCountry === 'China' ? "selected" : "" %>>China</option>
+          <option value="South Korea" <%= selectedCountry === 'South Korea' ? "selected" : "" %>>South Korea</option>
+          <option value="Russia" <%= selectedCountry === 'Russia' ? "selected" : "" %>>Russia</option>
+        </select>
+        <button class="btn btn-search" type="submit">Search</button>
+      </form>
+
+
+      <!-- Right side links -->
+      <ul class="navbar-nav ms-md-3">
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Add new Listing</a>
+        </li>
+        <% if (!currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup"><b>SignUp</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login"><b>Login</b></a>
+          </li>
+        <% } %>
+        <% if (currUser) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout"><b>Logout</b></a>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="thick-line"></div>
