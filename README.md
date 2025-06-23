@@ -1,6 +1,6 @@
 # Stayora
 
-Stayora is a hotel web application where the owner can list their homes and hotels and specify the price and location details.
+Stayora is a web application where the user can list their homes and hotels and specify the price and location details.
 
 The admin/owner of the listing can delete and edit the listing.
 
