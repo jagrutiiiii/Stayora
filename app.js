@@ -46,6 +46,15 @@ async function main(){
     await mongoose.connect(dbUrl);
 }
 
+mongoose.connection.on('error', (err) => {
+  console.error('Mongoose connection error:', err);
+});
+
+mongoose.connection.on('disconnected', () => {
+  console.warn('Mongoose disconnected from MongoDB');
+});
+
+
 const store = MongoStore.create({
     mongoUrl : dbUrl,
     crypto : {
@@ -59,6 +68,7 @@ store.on("error" , (err) => {
 });
 
 const sessionOptions = {
+    store: store,
     secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
@@ -130,4 +140,12 @@ app.use((err,req,res,next) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("Unhandled Rejection:", reason);
+});
+
+process.on("uncaughtException", (err) => {
+  console.error("Uncaught Exception:", err);
 });
