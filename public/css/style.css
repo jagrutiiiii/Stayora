@@ -134,14 +134,10 @@ body{
     background-color: blueviolet !important;
 }
 
-.thick-line{
+/* .thick-line{
     height: 1.20px;
     background-color: black;
     width: 100%;
     margin: 0;
-}
+} */
 
-.fa-linkedin {
-    color: inherit;
-    text-decoration: none;
-}

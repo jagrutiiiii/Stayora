@@ -103,9 +103,9 @@ app.use((req, res, next) => {
 });
 
 
-// app.get("/" , (req,res) => {
-//     res.send("Root");
-// });
+app.get("/" , (req,res) => {
+    res.send("Welcome to Stayora");
+});
 
 const validatelisting = (req,res,next) => {
     let {error} = listingSchema.validate(req.body);
