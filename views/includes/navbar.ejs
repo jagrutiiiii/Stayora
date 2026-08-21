@@ -1,5 +1,6 @@
 <%
   const selected = typeof selectedCountry !== 'undefined' ? selectedCountry : null;
+  const user = typeof currUser !== 'undefined' ? currUser : null;
 %>
 <style>
   .btn-search {
@@ -86,18 +87,19 @@
         <li class="nav-item">
           <a class="nav-link" href="/listings/new">Add new Listing</a>
         </li>
-        <% if (!currUser) { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup"><b>SignUp</b></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/login"><b>Login</b></a>
-          </li>
-        <% } %>
-        <% if (currUser) { %>
-          <li class="nav-item">
-            <a class="nav-link" href="/logout"><b>Logout</b></a>
-          </li>
+        <% if (!user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup"><b>SignUp</b></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/login"><b>Login</b></a>
+            </li>
+          <% } %>
+          
+          <% if (user) { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout"><b>Logout</b></a>
+            </li>
         <% } %>
       </ul>
     </div>
